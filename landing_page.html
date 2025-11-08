@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChannelSync Pro - Manage Multiple Telegram Channels Effortlessly</title>
+    <meta name="description" content="Schedule posts, cross-post to multiple channels, and track analytics - all within Telegram. Join the waitlist for early access.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            color: white;
+        }
+
+        .logo {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 24px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .hero-section {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 40px auto;
+            max-width: 900px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .hero-text {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-text h2 {
+            font-size: 36px;
+            color: #2d3748;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 20px;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        .problem-section {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 10px;
+        }
+
+        .problem-section h3 {
+            color: #856404;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .problem-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .problem-section li {
+            padding: 10px 0;
+            color: #856404;
+            font-size: 18px;
+        }
+
+        .problem-section li:before {
+            content: "❌ ";
+            margin-right: 10px;
+        }
+
+        .solution-section {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 10px;
+        }
+
+        .solution-section h3 {
+            color: #155724;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .solution-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .solution-section li {
+            padding: 10px 0;
+            color: #155724;
+            font-size: 18px;
+        }
+
+        .solution-section li:before {
+            content: "✅ ";
+            margin-right: 10px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #4a5568;
+            font-size: 16px;
+        }
+
+        .waitlist-form {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 50px 40px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            margin: 50px 0;
+        }
+
+        .waitlist-form h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .waitlist-form p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .form-group {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            flex: 1;
+            padding: 18px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px 40px;
+            font-size: 20px;
+            font-weight: 600;
+            background: white;
+            color: #667eea;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .early-bird {
+            background: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        .pricing-section {
+            margin: 60px 0;
+        }
+
+        .pricing-section h2 {
+            text-align: center;
+            font-size: 36px;
+            color: #2d3748;
+            margin-bottom: 40px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .pricing-card.featured {
+            border-color: #667eea;
+            border-width: 3px;
+            position: relative;
+        }
+
+        .pricing-card.featured::before {
+            content: "MOST POPULAR";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #667eea;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pricing-card h3 {
+            font-size: 24px;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 48px;
+            font-weight: 700;
+            color: #667eea;
+            margin: 20px 0;
+        }
+
+        .price span {
+            font-size: 20px;
+            color: #718096;
+        }
+
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            color: #4a5568;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .pricing-features li:before {
+            content: "✓ ";
+            color: #48bb78;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        .social-proof {
+            background: #f8f9fa;
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        .social-proof h2 {
+            font-size: 36px;
+            color: #2d3748;
+            margin-bottom: 40px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            color: #4a5568;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .tagline {
+                font-size: 20px;
+            }
+
+            .hero-section {
+                padding: 40px 20px;
+            }
+
+            .hero-text h2 {
+                font-size: 28px;
+            }
+
+            .form-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🚀</div>
+            <h1>ChannelSync Pro</h1>
+            <p class="tagline">Manage Multiple Telegram Channels Like a Pro</p>
+        </header>
+
+        <div class="hero-section">
+            <div class="hero-text">
+                <h2>Stop Wasting Hours Managing Multiple Telegram Channels</h2>
+                <p>Schedule posts, cross-post to multiple channels, track analytics, and automate your content workflow - all within Telegram.</p>
+            </div>
+
+            <div class="problem-section">
+                <h3>Are You Struggling With...</h3>
+                <ul>
+                    <li>Manually posting the same content to 5, 10, or 20+ channels?</li>
+                    <li>No way to schedule posts across multiple channels at once?</li>
+                    <li>Missing insights on what content performs best?</li>
+                    <li>Valuable content getting buried in channel history?</li>
+                    <li>Team members lacking proper workflow tools?</li>
+                </ul>
+            </div>
+
+            <div class="solution-section">
+                <h3>ChannelSync Pro Solves All This</h3>
+                <ul>
+                    <li>Post to unlimited channels with one click</li>
+                    <li>Schedule posts days, weeks, or months in advance</li>
+                    <li>Track engagement metrics across all channels</li>
+                    <li>Automatically recycle high-performing content</li>
+                    <li>Collaborate with your team seamlessly</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="hero-section">
+            <h2 style="text-align: center; color: #2d3748; margin-bottom: 50px;">Powerful Features</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📤</div>
+                    <h3>Smart Cross-Posting</h3>
+                    <p>Post to multiple channels simultaneously with customized content for each</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Advanced Scheduling</h3>
+                    <p>Schedule posts with recurring patterns, bulk uploads, and timezone support</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Analytics Dashboard</h3>
+                    <p>Track views, reactions, growth, and identify best posting times</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Content Recycling</h3>
+                    <p>Automatically resurface your best-performing evergreen content</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Team Collaboration</h3>
+                    <p>Multi-user access with roles, approvals, and task assignments</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Content Library</h3>
+                    <p>Centralized media storage with tags, search, and templates</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-section pricing-section">
+            <h2>Simple, Transparent Pricing</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Free</h3>
+                    <div class="price">$0<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Up to 3 channels</li>
+                        <li>20 scheduled posts/month</li>
+                        <li>Basic analytics (7 days)</li>
+                        <li>100 MB storage</li>
+                        <li>Single user</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3>Pro</h3>
+                    <div class="price">$9.99<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Up to 15 channels</li>
+                        <li>Unlimited scheduled posts</li>
+                        <li>Advanced analytics (90 days)</li>
+                        <li>5 GB storage</li>
+                        <li>Up to 5 team members</li>
+                        <li>Content recycling</li>
+                        <li>Priority support</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Business</h3>
+                    <div class="price">$29.99<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Unlimited channels</li>
+                        <li>Unlimited everything</li>
+                        <li>Full analytics (unlimited)</li>
+                        <li>50 GB storage</li>
+                        <li>Unlimited team members</li>
+                        <li>Custom branding</li>
+                        <li>API access</li>
+                        <li>Dedicated support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="waitlist-form">
+            <h2>Join the Waitlist</h2>
+            <p>Be among the first to get early access when we launch</p>
+            
+            <form id="waitlistForm" class="form-group">
+                <div class="form-row">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <input type="text" id="telegram" name="telegram" placeholder="Telegram Username (optional)" style="width: 100%; margin-bottom: 15px;">
+                <button type="submit" class="submit-btn">Join Waitlist - It's Free!</button>
+                
+                <div class="early-bird">
+                    🎁 Early bird bonus: First 100 signups get 50% off for life!
+                </div>
+
+                <div id="successMessage" class="success-message">
+                    ✅ Success! You're on the waitlist. We'll email you when we launch!
+                </div>
+            </form>
+        </div>
+
+        <div class="social-proof">
+            <h2>Why Telegram Users Love Us</h2>
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-number">5M+</div>
+                    <div class="stat-label">Potential Users</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">10M+</div>
+                    <div class="stat-label">Telegram Channels</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">900M+</div>
+                    <div class="stat-label">Telegram Users</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">20%</div>
+                    <div class="stat-label">YoY Growth</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 ChannelSync Pro. All rights reserved.</p>
+        <p>
+            <a href="mailto:hello@channelsyncpro.com">Contact</a>
+            <a href="#privacy">Privacy</a>
+            <a href="#terms">Terms</a>
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const telegram = document.getElementById('telegram').value;
+            
+            // Store in localStorage for now (in production, send to backend)
+            const waitlistData = {
+                name: name,
+                email: email,
+                telegram: telegram,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Get existing waitlist or create new array
+            let waitlist = JSON.parse(localStorage.getItem('channelsync_waitlist') || '[]');
+            waitlist.push(waitlistData);
+            localStorage.setItem('channelsync_waitlist', JSON.stringify(waitlist));
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Reset form
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(function() {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+            
+            // In production, you would send this to your backend:
+            // fetch('/api/waitlist', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(waitlistData)
+            // });
+        });
+    </script>
+</body>
+</html>
